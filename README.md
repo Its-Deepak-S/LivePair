@@ -97,8 +97,24 @@
 * Add authentication and store user IDs in the database
 * Add chat bar for communication
 * Add support for more languages
-* Implement autocomplete using LLM integration
 * Implement deletion of rooms after certain time period
+* Improve the AI autocomplete feature
+
+---
+
+## LLM Integration for Autocompletion
+
+1. Navigate into the "backend_llm" folder instead of "backend"
+
+2. Follow the same steps as mentioned above for the "backend" folder
+
+**Note: You will need to have Ollama installed along with the appropriate model being used ( in this case LLama2)**
+
+### Limitations
+
+* Suggestions may not always be accurate
+* The model may occasionally output extra text instead of pure code
+
 
   
 
