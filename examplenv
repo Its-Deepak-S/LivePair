@@ -1,0 +1,5 @@
+DATABASE_URL = ""
+
+DEBUG = True
+
+ALLOWED_ORIGINS = "https://localhost:5173"
