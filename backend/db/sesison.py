@@ -8,7 +8,7 @@ engine = create_engine(settings.DATABASE_URL , echo = True)
 
 SessionLocal = sessionmaker(bind = engine , autoflush=False , autocommit = False)
 
-
+# To get database session
 def get_db():
   db=SessionLocal()
   try:
@@ -16,5 +16,6 @@ def get_db():
   finally:
     db.close()
 
+# Creates schemas when app runs
 def create_tables():
   Base.metadata.create_all(bind=engine)

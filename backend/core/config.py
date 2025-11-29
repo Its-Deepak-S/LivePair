@@ -1,5 +1,7 @@
 from pydantic_settings import BaseSettings
 
+
+# Configuring and using variables from the .env file
 class Settings(BaseSettings):
   PROJECT_NAME : str = "Pair programming assignment"
   DATABASE_URL : str

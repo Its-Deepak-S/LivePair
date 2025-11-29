@@ -3,6 +3,8 @@ from sqlalchemy.sql import func
 from db.sesison import Base
 import uuid
 
+
+# Database schema for the Room table
 class Room(Base):
   __tablename__ = "rooms"
 

@@ -8,11 +8,16 @@ from services.autocomplete_service import mock_suggestion
 
 router =  APIRouter(prefix="/v1", tags=["rooms"])
 
+
+
+# Endpoint to create a room
 @router.post("/rooms" , response_model=RoomResponse)
 def create_room_endpoint(db:Session = Depends(get_db)) -> RoomResponse:
   room = create_room(db)
   return get_room_by_id(db, room_id = room.room_id)
 
+
+# Endpoint to join a room with an ID
 @router.get("/room/{room_id}",response_model=RoomResponse)
 def get_room(room_id:str , db:Session = Depends(get_db)) -> RoomResponse:
 
@@ -21,6 +26,8 @@ def get_room(room_id:str , db:Session = Depends(get_db)) -> RoomResponse:
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Room not found")
   return RoomResponse(roomId=room_id) 
 
+
+#Autocomplete Endpoint
 @router.post("/autocomplete",response_model=AutoCompleteResponse, tags=["autocomplete"])
 def autocomplete(payload: AutoCompleteRequest) -> AutoCompleteResponse:
   suggestion = mock_suggestion(payload)
