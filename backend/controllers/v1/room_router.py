@@ -9,9 +9,9 @@ from services.autocomplete_service import mock_suggestion
 router =  APIRouter(prefix="/v1", tags=["rooms"])
 
 @router.post("/rooms" , response_model=RoomResponse)
-def create_room(db:Session = Depends(get_db)) -> RoomResponse:
+def create_room_endpoint(db:Session = Depends(get_db)) -> RoomResponse:
   room = create_room(db)
-  return get_room_by_id(roomId = room.room_id)
+  return get_room_by_id(db, room_id = room.room_id)
 
 @router.get("/room/{room_id}",response_model=RoomResponse)
 def get_room(room_id:str , db:Session = Depends(get_db)) -> RoomResponse:

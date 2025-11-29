@@ -1,7 +1,10 @@
+from __future__ import annotations
+
 import secrets
 from typing import Optional
 from sqlalchemy.orm import Session
 from schemas.room import Room
+
 
 ROOM_ID_BYTES = 4
 
@@ -28,7 +31,7 @@ def create_room(db:Session) -> Room :  # Unique Room ID
   return room
 
 def get_room_by_id(db:Session , room_id : str) -> Optional[Room]:
-  return db.query(Room).filter(room_id = room_id).first()
+  return db.query(Room).filter(Room.room_id == room_id).first()
 
 def update_saved_code(db:Session ,room_id:str,  code:str) -> Optional[Room]:
   room = get_room_by_id(db,room_id)

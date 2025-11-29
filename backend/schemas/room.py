@@ -6,7 +6,7 @@ import uuid
 class Room(Base):
   __tablename__ = "rooms"
 
-  id = Column(String , primary_key=True , default=lambda:str (uuid.uuid4())   ,description = "DB Room Id")
+  id = Column(String , primary_key=True , default=lambda:str (uuid.uuid4()))
 
   room_id = Column(String, unique=True, nullable=False)
   
