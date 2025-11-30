@@ -21,4 +21,3 @@ create_tables()
 app.include_router(rooms_router)
 app.include_router(websocket_router)
 
-

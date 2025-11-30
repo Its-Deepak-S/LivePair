@@ -8,10 +8,10 @@ def mock_suggestion(payload: AutoCompleteRequest) -> str:
 
   if language =="python":
     if "def" in code and "pass" not in code:
-      return "  ():" \
-      "  pass"
+      return "  (): pass" 
     elif "print" in code:
-      return ("hello world")
+      return "('hello world')"
+  
   
 
     

@@ -11,7 +11,7 @@ router =  APIRouter(prefix="/v1", tags=["rooms"])
 
 
 # Endpoint to create a room
-@router.post("/rooms" , response_model=RoomResponse)
+@router.post("/rooms", response_model=RoomResponse)
 def create_room_endpoint(db:Session = Depends(get_db)) -> RoomResponse:
   room = create_room(db)
   return get_room_by_id(db, room_id = room.room_id)
